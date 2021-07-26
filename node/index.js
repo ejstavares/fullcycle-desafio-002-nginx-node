@@ -24,15 +24,15 @@ app.get('/', async (req, res) => {
         if (err) {
             _resp = err
             console.log('============== ERROR ======================')
-            res.send(`<h1>Full Cycle!</h1><p>Oops! ${err}</p>`)
+            res.send(`<h1>Full Cycle Rocks!</h1><p>Oops! ${err}</p>`)
         } else{
             _resp = result
-            console.log('============== RESULT ======================')
+            console.log('============== SUCCESS ======================')
             var content ='<thead><tr style="border-collapse: collapse;"><th>ID</th><th>Name</th></tr></thead>'
             Object.keys(result).forEach(function(key) {
                 content += `<tr style="border-collapse: collapse;"><td>${result[key].id}</td><td>${result[key].name}</td></tr>`;
               });
-            res.send(`<h1>Full Cycle! </br> <span style="font-size:12px;color:#666666;">Desafio Nginx com Node.js</span></h1><p><a style="color:green" href="/new">New Record</a> <a style="color:red; margin-left:50px" href="/delete">Delete All</a></p> <p><table border="1" style="width:50%; border-collapse: collapse;">${content}</table></p>`)
+            res.send(`<h1>Full Cycle Rocks!</br> <span style="font-size:12px;color:#666666;">Desafio Nginx com Node.js</span></h1><p><a style="color:green" href="/new">New Record</a> <a style="color:red; margin-left:50px" href="/delete">Delete All</a></p> <p><table border="1" style="width:50%; border-collapse: collapse;">${content}</table></p>`)
         }
     })    
     con.end()
@@ -48,7 +48,7 @@ app.get('/new', async (req, res) => {
     res.redirect('/')
 })
 app.get('/delete', async (req, res) => {
-    console.log('============== New PEOPLE ======================')
+    console.log('============== Delete All PEOPLE ======================')
     
     con = mysql.createConnection(config)
     con.query('delete from people')
